@@ -1,0 +1,58 @@
+#Fichier de personnes
+#Nom:Prenom:Date:adresse rue:Ville:Code postal
+Galle:Martin:12-2-1989:rue du casino:Uriage-les-Bains:38000
+Goudy:Debby:14-9-1990:avenue des cheveux raides:Paris:75002
+Pleur:Jean:13-3-1994:rue de la poisse:Grenoble:38000
+Prane:Dolly:19-11-1995:place de la pharmacie:Grenoble:38100
+Mieu:Jeff-Edmond:22-12-1992:sentier des efforts:Grenoble:38000
+Honnete:Marie:24-9-1982:boulevard Guignol:Paris:75003
+Patamob:Adhemar:3-1-1945:place des motards:Marseille:13003
+Tim:Vincent:12-1-2014:avenue de l'oseille:Marseille:13005
+Abel:Vladimir:7-7-2013:rue des vergers:La Palud-sur-Verdon:04120
+Pavumamoto:Xavier:27-6-2014:place des motards:Marseille:13003
+Eunitette:Yannick:29-2-2013:rue de l'absurde:Arue:40120
+Skivolle:Ivan:18-05-1946:rue de la rapine:La Destrousse:13112
+Diculiser:Valery:14-9-2011:impasse de la moquerie:Tercis-les-Bains:40180
+Jasmin:Theo:9-4-2010:rue des boissons chaudes:Cognac:16100
+Dicule:Terry:12-11-2008:rue de la mouche qui pete:Vilhonneur:16220
+Rhineboucher:Tatiana:10-1-2009:avenue de la respiration:Bouc-Bel-Air:13320
+Fonsek:Sophie:12-2-2001:place des charcutiers:Pance:35212
+Avandentrer:Sonia:3-5-2000:rue des chochettes:Haut-Clocher:57400
+Illicuir:Sim:1-3-2003:impasse des tanneurs:Thann:68800
+Lutfinale:Sheila:12-10-2005:avenue Lenine:Fontaine:38600
+Anmajor:Serge:28-8-1967:rue du porte-plume:Boulogne-Billancourt:92100
+Vigote:Sarah:21-3-1982:rue de la tete de veau:Ussel:19200
+Matiser:Sandra:31-4-1990:avenue de l'optimisme:Porte-Joie:27430
+Acomsa:Samir:14-6-1998:chemin du contentement:Fontrabiouse:66210
+Hutte:Sacha:4-2-2000:rue des dissipes:Fumay:08170
+Esque:Romane:7-9-2001:boulevard du recit:Contes:06390
+Hochet:Rick:19-5-1970:rue des rebondis:Ballons:26560
+Ussion:Paul:10-5-1981:passage de la fumee jaune:Fumay:08170
+Sens:Rene:12-7-1975:rue de la resurrection:Reveillon:61348
+Seurdezinpo:Regis:31-6-1975:rue des taxes:Bonnefontaine:39800
+Kiroul:Pierre:7-11-1995:route des gravillons:Montagny:69700
+Huilda:Rachid:11-11-1918:place des lubrifiants:Glisy:80440
+Rirunpeu:Seymour:14-7-1994:rue du cimetiere:La Tombe:77130
+Oin:Serge:6-10-2007:place de l'outillage:Plombieres-les-Bains:88370
+Peuvitpourmoi:Saturnin:14-7-1998:avenue du manege:Rouet:34236
+Amploi:Paul:4-4-1997:place des inactifs:Saint-Joseph:42800
+Tounette:Patrice:24-2-2003:rue de la Joie:Saint-Hilarion:78125
+Lametro:Paul:29-2-1996:avenue de la Cite:Paris:75001
+Tonsak:Ovide:31-7-1948:place du deballage:Sache:37205
+Vresse:Olive:30-9-1998:rue de la biture:Souraide:64250
+Gator:Ali:31-12-1999:allee du reptile:Pierrelatte:26700
+Lemoiplufort:Odile:2-5-2000:rue des malentendants:Sours:28630
+Duman:Henriette:6-6-2001:rue des charcutiers:Bouchet:26790
+Sonchagrin:Noah:7-7-2002:place de la consolation:Joyeuse:07260
+Nicoca:Nicolas:31-8-2003:rue Pepsi:Colombes:92700
+Greux:Nadine:31-9-2004:chemin des boissons:Eaubonne:95600
+Rosoft:Mike:17-10-2005:avenue de l'ordinateur:Binarville:51800
+Mipoivre:Michel:11-11-2006:allee du piment:Espelette:64250
+Enfaillite:Melusine:25-12-2007:place de la banqueroute:Argentat:19010
+Laval:Lise:1-9-2008:rue des maroquiniers:Thann:68800
+Case:Camille:2-3-2009:rue du Japon:Avion:62210
+Monde:Betty:29-5-2010:rue des Loups-Garous:Thiercelieux:77320
+Arpasser:Blanche:12-6-2011:rue du nettoyage à sec:Pressingy:52500
+Chette:Barbie:19-11-2012:chemin des coiffeurs:Barberaz:73029
+Hannas:Anne:1-1-2013:place du marche aux fruits:Corbeilles:45490
+Cicode:David:30-2-2014:rue de l'enigme:Lyon:69003

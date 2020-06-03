@@ -1,0 +1,136 @@
+#! /bin/bash
+#BENCHEIKH Sabrina et BOUAZIZ Mohammed Amine
+#Cette commande crée à partir d'un fichier entré en parametre un deuxieme fichier qui contient des lignes comprenant pour chaque personne: le nom, le prenom, la date de naissance et le signe zodiacal.
+
+function aide ()
+# affiche l'aide de la commande (si $1 = "--help")
+{
+	echo "usage : creersignes affiche dans un nouveau fichier le signe zodiacal de personnes données dans un fichier entré en parametre "
+	echo "verifie que les parametre de la date sont des entiers"
+	echo "verifie que le parametre entré est un fichier text"
+	echo "exemple: creersignes fichier.txt nouveau_fichier.txt"
+	return 0
+}
+
+function isnum ()
+#fonction qui renvoie 0 (vrai) quand l'argument qui lui est passé en paramètre est un nombre (positif ou négatif), 1 sinon
+{
+   if [[ "$1" =~ ^[-+]?[0-9]+$ ]]; then
+   	return 0
+   	else
+        return 1
+   fi
+}
+
+function estbissextile ()
+#fonction qui envoie 0 (Vrai) si l'année (l'argument passé en parametre)  est bissextille, 1 sinon
+{
+
+  if ([ `expr $3 % 400` -eq 0 ]) | ([ `expr $3 % 4` -eq 0 ] && [ `expr $3 % 100` -ne 0 ]);then 
+  
+	return 0 
+	else
+	return 1 
+
+  fi 
+ 
+}
+
+function dateval ()
+#fonction qui renvoie 0 si la date est valide , 1 sinon (dans le cas ou $1 (le jours) ne serait pas dans l'interval exigé à savoir >0 et <jourmax du mois en question)
+#Vu qu'on a listé tous les cas possible si les parametre ne se trouve dans aucun des cas possibles on renverra à la fin 1 ce qui equivaut à faux.
+# On rajoutera pour cette commande la fonction est bissextile qu'on utilisera pour le mois de fevrier afin de determiner le nombre de max de jours de ce mois selon l'année entrée en parametre.
+#On a définie le nombre de jour maximal des mois dans des catégoris et on a listé les 12 mois de l'année. Dans le cas ou le mois entré ne correspond à aucune des possibilité on reverra 1, ce qui equivaut à faux.
+{
+case "$2" in
+  
+ "1" | "3" | "5" | "7"| "8" | "10" | "12" | "01"| "03" | "05" | "07" | "08") 
+
+   if [ $1 -gt 31 ] || [ $1 -le 0 ];then
+   	return 1
+   	else 
+   	return 0
+   fi
+   ;;
+
+ 
+  "4" | "6" | "9" | "11" | "04" | "06" | "09" )      
+   if [ $1 -gt 30 ] || [ $1 -le 0 ];then
+   	return 1
+  	else 
+   	return 0
+   fi
+   ;;
+ 
+  "2" | "02" )  
+      
+   if estbissextile $*; then 
+
+    	if [ $1 -gt 29 ] || [ $1 -le 0 ];then
+   	return 1
+   	else 
+   	return 0
+   	fi
+   else
+   	if [ $1 -gt 28 ] || [ $1 -le 0 ];then
+   	return 1
+   	else 
+   	return 0
+   	fi
+   fi
+   ;;
+
+* )
+return 1
+;;
+
+esac
+}
+
+
+#Le programme principal
+if [ $# -eq 0 ]; then					#On vérifis la présence des parametres souhaités
+echo "pas de parametres!" >&2
+aide
+
+elif [ $1 = "--help" ]; then				#On affiche l'aide si le parametre entré est --help
+aide
+
+elif [ ! -f $1 ]; then					# On vérifie que le parametre entré est bien un fichier
+echo "Ce fichier est introuvable"			
+aide 
+
+							#Si tout est bon on executera les instruction suivantes:
+else
+
+
+	touch $2					#On crée un fichier à partir du deuxieme parametre un fichier du même nom
+       echo "#Fichier personnes.txtavec les signeszodiacaux">$2			#On affiche les deux premieres lignes du fichiers 
+       echo "#nom:prenom:date naissance:signe zodiacal">>$2		    	#qui contitue le libelle ainsi que la forme des données contenues
+	IFS=:									# : est le caractère séparateur des données sur la ligne
+	while read -r n1 n2 n3 n4						# On lit les données
+	do
+		if [ ${n1:0:1} != "#" ] ; then   				# on ignore les lignes commençant par #do
+										#On stock les données dans des variables
+		j=$(echo $n3 | cut -d- -f1)
+		m=$(echo $n3 | cut -d- -f2)
+		a=$(echo $n3 | cut -d- -f3)
+		
+ 		
+			if ! isnum "$j" "$m" "$a" || ! dateval "$j" "$m" "$a"; then 			#On vérifie si la date est valide
+			echo -e "$n1:$n2:$n3 n'est pas valable " >> $2		#S'elle ne l'est pas on affichera un message d'erreur qu'on renvoie au fichier 2
+                        else 							#On traitera que les dates valides
+			echo "$n1:$n2:$n3:"`bash signezodiaque $j $m` >> $2	#On affichera le nom($1), prenom($2), la date de naissance($3), signe zodiacal
+			fi							#On affichera le signe zodiacal en apellant la commande zignezodiaque 
+		fi								#avec en parametre le jour et le mois de naissance
+	done < "$1"								# On renvoie le résultat vers le fichier $2
+fi								
+
+
+
+
+
+
+
+
+

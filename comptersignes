@@ -1,0 +1,53 @@
+#! /bin/bash
+#BENCHEIKH Sabrina et BOUAZIZ Mohammed Amine
+#Cette commande affiche le nombre de personnes dont le signe est celui passé en parametre $2, dans un fichier donné en parametre $1.
+
+function aide ()
+# affiche l'aide de la commande (si $1 = "--help")
+{
+	echo "usage : comptersignes affiche le nombre de personnes dont le signe est celui passé en parametre dans un fichié donné  "
+	echo "Vérifier que le premier parametre est un fichier.txt"
+	echo "Vérifier la syntaxe du signe entré en parametre. Premiere lettre du signe en majuscule"
+	echo "exemple: comptersignes fichier.txt Signe"
+	return 0
+}
+
+#Programme principal
+if [ $# -eq 0 ]; then			#On vérifis la présence des parametres souhaités
+echo "pas de parametres!" >&2
+aide
+
+elif [ $1 = "--help" ]; then		#On affiche l'aide si le parametre entré est --help
+aide 
+
+elif [ ! -f $1 ]; then			#On vérifie le parametre donnée $1 est un fichier
+echo "Fichier introuvable" >&2
+aide
+
+else					#Si tout est bon on executera les instructions suivantes:
+# On crée une liste avec tous les signes zodiacals possibles.
+T_s=([0]="Verseau" [1]="Poisson" [2]="Bellier" [3]="Taureau" [4]="Gemeaux" [5]="Cancer" [6]="Lion" [7]="Vierge" [8]="Balance" [9]="Scorpion" [10]="Sagittaire" [11]="Capicorne" )
+i=0								
+	while [ "$2" != "${T_s[i]}" ] && [ $i -le 11 ]		# On cherche le signe entré en parametre dans le tableau qu'on a initialisé
+	do 
+	((i++))
+	done
+		if [ $i -gt 11 ];then				# Si on le trouve pas c'est qu'il ya erreur dans le signe entré en parametre
+		echo "Veuillez vérifier la syntaxe du signe que vous avez entré en parametre." >&2   
+		
+		else					#Sinon on lis le fichier entré en premier parametre
+		nb=0					#nb: le nombre de signes équivalents a celui entré en parametres dans le fichiers			
+		IFS=:
+		while read -r n1 n2 n3 n4 			#On cherche les signes qui sont équivalent dedans et on incrémente nb déja initialisé à 0.
+		do
+			if [ "$2" == "$n4" ];then
+			((nb++))
+			fi
+			
+		done < "$1"
+		echo "Il y a $nb personne(s) du signe $2"       # à la fin du fichier on affichera nb.
+		fi
+
+	
+fi
+
