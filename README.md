@@ -4,11 +4,16 @@ Pré-requis:
 Invite de commande
 Commandes shell
 
-1.Cloner ou télécharger le zip du projet 
+1.Cloner ou télécharger le zip du projet
+
 2.Décompressez les fichier "signeZodiaque-scriptShell-master.zip" dans le répértoire de votre choix
+
 3.Ouvrez les terminal et positionnez vous sur le repertoire du projet
+
 4.Executer les commandes avec un './nomDeLaCommande', une erreur vous affichera un exemple de ce que chaque commande prend en paramètres
+
 5. details de chaque commande:
+
 	a) exemple: signezodiaque JJ MM
 	=>Cette commande calcule et affiche le signe zodiacal correspondant à une date $1 au format JJ-MM.
 
